@@ -44,11 +44,11 @@ router.get('/:id', (req, res) => {
     }
       res.json(productData);
     })
-  })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
+  });
 
 // create new product
 router.post('/', (req, res) => {
@@ -80,6 +80,7 @@ router.post('/', (req, res) => {
       console.log(err);
       res.status(400).json(err);
     });
+});
 
 // update product
 router.put('/:id', (req, res) => {
