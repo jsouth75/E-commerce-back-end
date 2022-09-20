@@ -63,17 +63,17 @@ router.put('/:id', (req, res) => {
     where: {
       id: req.params.id
       }
-    }
-  ).then(categoryUpdate => {
-    if (!categoryUpdate) {
+    })
+      .then(categoryUpdate => {
+      if (!categoryUpdate) {
       res.status(404).json({ message: "Update not found" });
       return;
-    }
-    res.json(categoryUpdate);
-  })
-  .catch(err => {
-    res.status(500).json(err);
-  });
+      }
+      res.json(categoryUpdate);
+      })
+      .catch(err => {
+      res.status(500).json(err);
+      });
 });
 
 router.delete('/:id', (req, res) => {

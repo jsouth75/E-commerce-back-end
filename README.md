@@ -6,12 +6,12 @@
 
 Built a back end e-commerce site to use Sequelize to interact with MySql database. 
 
-<img src="./assets/">
+<img src="./assets/E-commerce_screenshot.png">
 
 ## Demo
 
 Click on the following link to deploy this app 
-<a href="https://drive.google.com/" title="E-commerce back end">E-commerce-back-end</a>
+<a href="https://drive.google.com/file/d/1eelhZtaHYuV9gqcOP-2TopQcrOqhapkr/view?usp=sharing" title="E-commerce back end">E-commerce-back-end</a>
 
 ## License
 

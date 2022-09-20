@@ -91,10 +91,10 @@ router.put('/:id', (req, res) => {
     },
     {
     where: {
-      id: req.params.id,
+      id: req.params.id
     }
     })
-    .then((productUpdate => {
+    .then(productUpdate => {
       // find all associated tags from ProductTag
       if (!productUpdate) {
         res.status(404).json({ message: "Update not found" });
@@ -104,7 +104,7 @@ router.put('/:id', (req, res) => {
     })
       .catch(err => {
       res.status(500).json(err);
-      });
+      })
 });
 
 router.delete('/:id', (req, res) => {
