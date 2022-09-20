@@ -64,9 +64,16 @@ router.put('/:id', (req, res) => {
       id: req.params.id
       }
     }
-  ).then(category => {
-    res.json(category)
+  ).then(categoryUpdate => {
+    if (!categoryUpdate) {
+      res.status(404).json({ message: "Update not found" });
+      return;
+    }
+    res.json(categoryUpdate);
   })
+  .catch(err => {
+    res.status(500).json(err);
+  });
 });
 
 router.delete('/:id', (req, res) => {
@@ -75,9 +82,16 @@ router.delete('/:id', (req, res) => {
     where: {
       id: req.params.id
     }
-  }).then(category => {
-    res.json(category)
+  }).then(categoryPost => {
+    if (!categoryPost) {
+      res.status(404).json({ message: "Category not found"});
+      return;
+    }
+    res.json(categoryPost);
   })
+  .catch(err => {
+    res.status(500).json(err);
+  });
 });
 
 module.exports = router;

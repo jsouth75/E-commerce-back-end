@@ -53,23 +53,27 @@ router.put('/:id', (req, res) => {
       },
     }
   )
-    .then((Tag) => {
-    res.json(Tag)
+    .then((updatedTag) => {
+    res.json(updatedTag)
     })
 });
 
 router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
-  Tag.destroy(req.body,
-    {
+  Tag.destroy({
       where: {
         id: req.params.id,
-      },
-    }
-  )
-    .then((Tag) => {
-    res.json(Tag)
+      }
+    }).then(tagPost => {
+      if (!tagPost) {
+        res.status(404).json({ message: "Tag not found"});
+        return;
+      }
+      res.json(tagPost);
     })
-});
+    .catch(err => {
+      res.status(500).json(err);
+    });
+  });
 
 module.exports = router;
